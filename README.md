@@ -1,8 +1,8 @@
 # Orbitary
 
-*Orbitary* is an interactive 3D orbital monitoring HUD — a sci-fi-styled command console for exploring a simulated cosmic environment. Built with Three.js for real-time 3D rendering and Google's Gemini API for dynamic, AI-generated object lore, it blends a heads-up-display aesthetic with generative storytelling.
+**Orbitary** is an interactive 3D orbital monitoring HUD — a sci-fi-styled command console for exploring a simulated cosmic environment. Built with Three.js for real-time 3D rendering and Google's Gemini API for dynamic, AI-generated object lore, it blends a heads-up-display aesthetic with generative storytelling.
 
-> 🔗 *Live demo:* [orbitra-384109452792.asia-southeast1.run.app](https://orbitra-384109452792.asia-southeast1.run.app/)
+> 🔗 **Live demo:** [orbitra-384109452792.asia-southeast1.run.app](https://orbitra-384109452792.asia-southeast1.run.app/)
 
 ---
 
@@ -14,11 +14,11 @@ This is a simulated environment built for visual and interactive exploration —
 
 ## Features
 
-- *Interactive 3D orbital scene* — Rotate, zoom, and pan through a simulated space environment in real time, powered by Three.js.
-- *Clickable objects* — Select any object in the scene to focus on it.
-- *AI-generated lore* — Clicking an object sends a request to the Gemini API, which generates a unique description/backstory for that object on the fly.
-- *HUD-style interface* — A heads-up-display aesthetic (overlays, panels, sci-fi UI elements) built with React, Tailwind CSS, and Framer Motion for smooth animated transitions.
-- *Full-stack architecture* — An Express backend handles Gemini API requests server-side, keeping the API key off the client.
+- **Interactive 3D orbital scene** — Rotate, zoom, and pan through a simulated space environment in real time, powered by Three.js.
+- **Clickable objects** — Select any object in the scene to focus on it.
+- **AI-generated lore** — Clicking an object sends a request to the Gemini API, which generates a unique description/backstory for that object on the fly.
+- **HUD-style interface** — A heads-up-display aesthetic (overlays, panels, sci-fi UI elements) built with React, Tailwind CSS, and Framer Motion for smooth animated transitions.
+- **Full-stack architecture** — An Express backend handles Gemini API requests server-side, keeping the API key off the client.
 
 ## Tech Stack
 
@@ -30,7 +30,7 @@ This is a simulated environment built for visual and interactive exploration —
 | Animation | Framer Motion |
 | Icons | Lucide React |
 | Backend | Node.js, Express, tsx |
-| AI | Google Gemini API (@google/genai) |
+| AI | Google Gemini API (`@google/genai`) |
 
 ## Getting Started
 
@@ -41,55 +41,55 @@ This is a simulated environment built for visual and interactive exploration —
 
 ### Installation
 
-1. *Clone the repository*
-   bash
+1. **Clone the repository**
+   ```bash
    git clone https://github.com/sahithi280219/orbitary.git
    cd orbitary
-   
+   ```
 
-2. *Install dependencies*
-   bash
+2. **Install dependencies**
+   ```bash
    npm install
-   
+   ```
 
-3. *Configure environment variables*
+3. **Configure environment variables**
 
    Copy the example env file and add your Gemini API key:
-   bash
+   ```bash
    cp .env.example .env.local
-   
-   Then open .env.local and set:
-   
+   ```
+   Then open `.env.local` and set:
+   ```
    GEMINI_API_KEY=your_api_key_here
-   
+   ```
 
-4. *Run the development server*
-   bash
+4. **Run the development server**
+   ```bash
    npm run dev
-   
+   ```
 
-   The app will be available at http://localhost:5173 (or whichever port Vite assigns).
+   The app will be available at `http://localhost:5173` (or whichever port Vite assigns).
 
 ### Build for Production
 
-bash
+```bash
 npm run build
 npm run start
+```
 
-
-- npm run build compiles the frontend (Vite) and bundles the backend server with esbuild.
-- npm run start runs the production server from dist/server.cjs.
+- `npm run build` compiles the frontend (Vite) and bundles the backend server with esbuild.
+- `npm run start` runs the production server from `dist/server.cjs`.
 
 ### Other Scripts
 
 | Command | Description |
 |---|---|
-| npm run lint | Type-checks the project with tsc --noEmit |
-| npm run clean | Removes build artifacts (dist/, server.js) |
+| `npm run lint` | Type-checks the project with `tsc --noEmit` |
+| `npm run clean` | Removes build artifacts (`dist/`, `server.js`) |
 
 ## Project Structure
 
-
+```
 orbitary/
 ├── index.html          # App entry point
 ├── server.ts           # Express server (handles Gemini API requests)
@@ -98,7 +98,7 @@ orbitary/
 ├── package.json
 ├── .env.example         # Template for required environment variables
 └── ...                  # React components, 3D scene logic, HUD UI
-
+```
 
 ## How It Works
 
@@ -108,3 +108,4 @@ orbitary/
 4. The HUD displays the AI-generated text in an overlay panel, styled to match the monitoring-system theme.
 
 This separation keeps the Gemini API key secure on the server side rather than exposing it in client-side code.
+
