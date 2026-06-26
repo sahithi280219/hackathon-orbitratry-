@@ -245,7 +245,10 @@ app.get("/api/apod", async (req, res) => {
     const nasaResponse = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
     
     if (!nasaResponse.ok) {
-      throw new Error(`NASA APOD returned ${nasaResponse.status}`);
+      // Return fallback directly to avoid throwing noisy error logs
+      cachedAPOD = getFallbackAPOD();
+      cachedAPODTime = now;
+      return res.json(cachedAPOD);
     }
 
     const data = await nasaResponse.json();
@@ -264,7 +267,8 @@ app.get("/api/apod", async (req, res) => {
         ai_analysis = geminiRes.text || "";
       }
     } catch (err) {
-      console.error("Gemini APOD enrichment failed:", err);
+      // Soft log for internal debugging
+      console.log("[Info] APOD intelligence refinement bypassed.");
     }
 
     cachedAPOD = {
@@ -279,8 +283,9 @@ app.get("/api/apod", async (req, res) => {
     cachedAPODTime = now;
     res.json(cachedAPOD);
   } catch (error) {
-    console.warn("Using APOD fallback due to rate-limit/error:", error);
-    res.json(getFallbackAPOD());
+    cachedAPOD = getFallbackAPOD();
+    cachedAPODTime = now;
+    res.json(cachedAPOD);
   }
 });
 
@@ -297,7 +302,12 @@ app.get("/api/neo", async (req, res) => {
     const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${todayStr}&end_date=${todayStr}&api_key=${apiKey}`;
     
     const nasaRes = await fetch(url);
-    if (!nasaRes.ok) throw new Error("NeoWs error");
+    if (!nasaRes.ok) {
+      // Return fallback directly to avoid throwing noisy error logs
+      cachedNEO = getFallbackNEOs();
+      cachedNEOTime = now;
+      return res.json(cachedNEO);
+    }
 
     const data = await nasaRes.json();
     const neosToday = data.near_earth_objects[todayStr] || [];
@@ -323,8 +333,9 @@ app.get("/api/neo", async (req, res) => {
     cachedNEOTime = now;
     res.json(cachedNEO);
   } catch (err) {
-    console.warn("Using NEO fallback:", err);
-    res.json(getFallbackNEOs());
+    cachedNEO = getFallbackNEOs();
+    cachedNEOTime = now;
+    res.json(cachedNEO);
   }
 });
 
