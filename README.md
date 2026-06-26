@@ -1,3 +1,11 @@
+Orbitary
+
+*Orbitary* is an interactive 3D orbital monitoring HUD — a sci-fi-styled command console for exploring a simulated cosmic environment. Built with Three.js for real-time 3D rendering and Google's Gemini API for dynamic, AI-generated object lore, it blends a heads-up-display aesthetic with generative storytelling.
+
+> 🔗 *Live demo:* [orbitra-384109452792.asia-southeast1.run.app](https://orbitra-384109452792.asia-southeast1.run.app/)
+
+---
+
 ## Overview
 
 Orbitary renders a simulated orbital scene — satellites, celestial bodies, or space objects — inside an interactive 3D viewport designed to look and feel like a monitoring system HUD. Users can freely navigate the scene (rotate, zoom, pan) and click on individual objects to trigger an AI-generated description or backstory for that object, powered by Gemini.
