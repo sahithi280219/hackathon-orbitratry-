@@ -1,0 +1,6 @@
+{
+  "name": "Orbitra",
+  "description": "A real-time cosmic observatory with 3D solar system, interactive Cities Panorama from orbit, ISS live tracker, space weather dashboards, launch count downs, and COSMO AI assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
